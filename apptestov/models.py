@@ -14,6 +14,8 @@ class Subject (models.Model):
   title = models.CharField(max_length=200)
   
 class Theme (models.Model):
+  class Meta():
+    db_table = 'Theme'
   title = models.CharField(max_length=200)
   subject = models.ForeignKey(Subject)
 
