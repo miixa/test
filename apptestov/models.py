@@ -12,20 +12,24 @@ class user (models.Model):
 
 class Subject (models.Model):
   title = models.CharField(max_length=200)
+  user = models.ForeignKey(user)
   
 class Theme (models.Model):
-  class Meta():
+  class Meta:
     db_table = 'Theme'
   title = models.CharField(max_length=200)
   subject = models.ForeignKey(Subject)
+  user = models.ForeignKey(user)
 
 class Question (models.Model):
   title = models.CharField(max_length=400)
   subject = models.ForeignKey(Subject)
   theme = models.ForeignKey(Theme)
+  user = models.ForeignKey(user)
   
 class Answer (models.Model):
   title = models.CharField(max_length=400)
   question = models.ForeignKey(Question)
   subject = models.ForeignKey(Subject)
   theme = models.ForeignKey(Theme)
+  user = models.ForeignKey(user)
