@@ -1,9 +1,18 @@
-from django.shortcuts import render
+# -*- coding: utf-8 -*-
+from django.shortcuts import render_to_response
 from . import forms
+from apptestov.models import Subject, Theme
+
 # Create your views here.
 
-def Theme (request):
+def SubjectView (request):
     args = {}
-    args['form'] = forms.ThemeForm
-    return  render(request,'apptestov.html',args)
+    args['subjects'] = Subject.objects.all()
+    return  render_to_response('subject.html',args)
+
+def ThemesView (request,theme_id):
+    args = {}
+    args['themes'] = Theme.objects.get(id=theme_id)
+    return render_to_response('themes.html',args)
+
 

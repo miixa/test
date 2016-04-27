@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block subject %}
+<center>
+<div>
+{% for subject in subjects %}
+    <a href="get/{{subject.id}}" class="button"> {{subject.title}} </a>
+{% endfor %}
+</div>
+</center>
+{% endblock %}

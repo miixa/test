@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block themes %}
+<div>
+{% for theme in themes %}
+    <a href="#"> {{theme.title}} </a>
+{% endfor %}
+</div>
+{% endblock %}
