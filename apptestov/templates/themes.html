@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block themes %}
 <div>
-{% for theme in themes %}
-    <a href="#"> {{theme.title}} </a>
-{% endfor %}
+    <ul class="side-nav">
+    {% for theme in themes %}
+        <li><a href="/test/lessons/get/{{theme.id}}">{{ theme.title }}</a></li>
+    {% endfor %}
+    </ul>
 </div>
 {% endblock %}

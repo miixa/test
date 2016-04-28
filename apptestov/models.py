@@ -27,11 +27,22 @@ class Theme (models.Model):
   def __unicode__(self):
     return self.title
 
+class Lesson (models.Model):
+  class Meta:
+    db_table = 'Lesson'
+  title = models.CharField(max_length=200)
+  subject = models.ForeignKey(Subject)
+  theme = models.ForeignKey(Theme)
+  user = models.ForeignKey(user)
+  def __unicode__(self):
+    return self.title
+
 class Question (models.Model):
   title = models.CharField(max_length=400)
   subject = models.ForeignKey(Subject)
   theme = models.ForeignKey(Theme)
   user = models.ForeignKey(user)
+  lesson = models.ForeignKey(Lesson)
   def __unicode__(self):
     return self.title
   
@@ -41,5 +52,6 @@ class Answer (models.Model):
   subject = models.ForeignKey(Subject)
   theme = models.ForeignKey(Theme)
   user = models.ForeignKey(user)
+  lesson = models.ForeignKey(Lesson)
   def __unicode__(self):
     return self.title
