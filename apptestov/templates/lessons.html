@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block lesson %}
+{% block lessons %}
 <div>
+    <p>Занятия</p>
     <ul class="side-nav">
-        {{lesson}}
     {% for lesson in lessons %}
-        <li><a href="#">{{ lesson.title }}</a></li>
+        <li><a href="/test/lesson/get/{{lesson.id}}">{{ lesson.title }}</a></li>
     {% endfor %}
     </ul>
 </div>

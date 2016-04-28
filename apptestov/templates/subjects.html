@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block subject %}
 <center>
+    <p>Ваши предметы</p>
 <div>
 {% for subject in subjects %}
     <a href="/test/themes/get/{{subject.id}}" class="button"> {{subject.title}} </a>
