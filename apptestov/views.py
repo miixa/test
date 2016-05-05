@@ -21,12 +21,16 @@ def LessonsView (request,url_theme_id):
     return render_to_response('lessons.html',args)
 
 def LessonView (request,url_lesson_id):
-    subject = Subject.objects.filter(id=url_lesson_id)
-    theme = Theme.objects.filter(id=url_lesson_id)
-    lesson = Lesson.objects.filter(id=url_lesson_id)
+    lesson = Lesson.objects.get(id=url_lesson_id)
+    subject = lesson.subject
+    theme = lesson.theme
+    lesson_title = lesson.title
+    teacher = lesson.user.first_name + " " + lesson.user.last_name
+    #lesson = Lesson.objects.filter(id=url_lesson_id)
     args = {}
-    args['subject'] = subject[0]
-    args['theme'] = theme[0]
-    args['lesson'] = lesson[0]
+    args['subject'] = subject
+    args['theme'] = theme
+    args['lesson'] = lesson_title
+    args['teacher'] = teacher
     return render_to_response('lesson.html',args)
 
